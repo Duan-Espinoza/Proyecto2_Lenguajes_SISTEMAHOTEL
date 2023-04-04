@@ -90,4 +90,10 @@ mostrarInformacion hotel = do
 
 -- Función para cargar los tipos de habitaciones
 cargarTiposHabitacion :: Hotel -> IO ()
-cargar
+cargarTiposHabitacion hotel = do
+    putStrLn "Funcionalidad de carga de tipos de habitaciones"
+    -- Aquí puedes implementar la funcionalidad para cargar los tipos de habitaciones
+    menuAdministrativo hotel
+
+cargarTiposHabitacion hotel
+
