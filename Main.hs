@@ -95,5 +95,5 @@ cargarTiposHabitacion hotel = do
     -- Aquí puedes implementar la funcionalidad para cargar los tipos de habitaciones
     menuAdministrativo hotel
 
-cargarTiposHabitacion hotel
+-- cargarTiposHabitacion hotel
 
