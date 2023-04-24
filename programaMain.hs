@@ -20,8 +20,14 @@ data Reserva = Reserva {
 data Hotel = Hotel {
     nombreHotel :: String,
     habitaciones :: [Habitacion],
-    reservas :: [Reserva]
+    reservas :: [Reserva],
+    cedulaJuridica :: String,
+    sitioWeb :: String,
+    telefono :: String,
+    pais :: String,
+    provincia :: String
 } deriving (Show)
+
 
 -- Función para mostrar el menú principal
 menuPrincipal :: Hotel -> IO ()
@@ -83,9 +89,24 @@ mostrarInformacion :: Hotel -> IO ()
 mostrarInformacion hotel = do
     putStrLn "Información del hotel:"
     putStrLn $ "Nombre: " ++ nombreHotel hotel
+    putStrLn $ "Cédula jurídica: " ++ cedulaJuridica hotel
+    putStrLn $ "Sitio web: " ++ sitioWeb hotel
+    putStrLn $ "Teléfono: " ++ telefono hotel
+    putStrLn $ "País: " ++ pais hotel
+    putStrLn $ "Provincia: " ++ provincia hotel
     putStrLn "Tipos de habitaciones:"
     mapM_ print (habitaciones hotel)
     menuAdministrativo hotel
+
+cargarInformacion :: IO Hotel
+cargarInformacion = do
+    contenido <- readFile "informacion_hotel.txt"
+    let [nombre, cedulaJuridica, sitioWeb, telefono, pais, provincia] = lines contenido
+    return $ Hotel nombre [] [] cedulaJuridica sitioWeb telefono pais provincia
+
+
+
+
 
 -- Función para cargar los tipos de habitaciones
 cargarTiposHabitacion :: Hotel -> IO ()
@@ -105,5 +126,5 @@ hacerReservacion hotel = putStrLn "Funcionalidad no implementada" >> menuGeneral
 
 main :: IO ()
 main = do
-    let hotel = Hotel "Mi Hotel" [] []
+    let hotel = Hotel "Mi Hotel" [] [] "" "" "" "" ""
     menuPrincipal hotel
