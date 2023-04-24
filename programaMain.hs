@@ -32,6 +32,7 @@ data Hotel = Hotel {
 -- Función para mostrar el menú principal
 menuPrincipal :: Hotel -> IO ()
 menuPrincipal hotel = do
+    hotel <- cargarInformacion
     putStrLn "Bienvenido al sistema de gestión hotelera"
     putStrLn "Seleccione una opción:"
     putStrLn "1. Opciones Administrativas"
