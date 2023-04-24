@@ -3,10 +3,11 @@
 import System.IO
 -- Definición del tipo de datos para las habitaciones
 data Habitacion = Habitacion {
-    tipo :: String,
-    cantidad :: Int,
-    tarifa :: Float
-} deriving (Show)
+  tipo :: String,
+  descripcion :: String,
+  maxHuespedes :: Int
+} deriving (Show, Eq)
+
 
 -- Definición del tipo de datos para las reservas
 data Reserva = Reserva {
@@ -113,8 +114,28 @@ cargarInformacion = do
 cargarTiposHabitacion :: Hotel -> IO ()
 cargarTiposHabitacion hotel = do
     putStrLn "Funcionalidad de carga de tipos de habitaciones"
-    -- Aquí puedes implementar la funcionalidad para cargar los tipos de habitaciones
-    menuAdministrativo hotel
+    putStrLn "Ingrese la ruta del archivo de tipos de habitaciones:"
+    rutaArchivo <- getLine
+    contenido <- readFile rutaArchivo
+    let lineas = lines contenido
+    let nuevasHabitaciones = map parseHabitacion lineas
+    let habitacionesUnicas = eliminarDuplicados (nuevasHabitaciones ++ habitaciones hotel)
+    let nuevoHotel = hotel { habitaciones = habitacionesUnicas }
+    putStrLn "Tipos de habitaciones cargados exitosamente"
+    menuAdministrativo nuevoHotel
+
+-- procesa una línea del archivo y devuelve una nueva habitación con los datos correspondientes. 
+parseHabitacion :: String -> Habitacion
+parseHabitacion linea = do
+    let [tipo, descripcion, maxHuespedesStr] = words linea
+    let maxHuespedes = read maxHuespedesStr :: Int
+    Habitacion tipo descripcion maxHuespedes
+
+
+-- eliminar las habitaciones duplicadas en caso de que se hayan cargado tipos de habitaciones que ya existían en el hotel
+eliminarDuplicados :: Eq a => [a] -> [a]
+eliminarDuplicados [] = []
+eliminarDuplicados (x:xs) = x : eliminarDuplicados (filter (/= x) xs)
 
 consultarReservaciones :: Hotel -> IO ()
 consultarReservaciones hotel = putStrLn "Funcionalidad no implementada" >> menuAdministrativo hotel
