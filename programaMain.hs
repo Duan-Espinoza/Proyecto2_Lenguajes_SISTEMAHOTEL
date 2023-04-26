@@ -1,33 +1,17 @@
--- Area de pruebas
+-- librerias necesarias
 
 import System.IO
--- Definición del tipo de datos para las habitaciones
-data Habitacion = Habitacion {
-  tipo :: String,
-  descripcion :: String,
-  maxHuespedes :: Int
-} deriving (Show, Eq)
+import Data.Time
 
+--estructuras del programa
 
--- Definición del tipo de datos para las reservas
-data Reserva = Reserva {
-    nombre :: String,
-    habitacion :: Habitacion,
-    checkIn :: String,
-    checkOut :: String
-} deriving (Show)
-
--- Definición del tipo de datos para el hotel
-data Hotel = Hotel {
-    nombreHotel :: String,
-    habitaciones :: [Habitacion],
-    reservas :: [Reserva],
-    cedulaJuridica :: String,
-    sitioWeb :: String,
-    telefono :: String,
-    pais :: String,
-    provincia :: String
-} deriving (Show)
+import Habitacion
+import Reservacion
+import Hotel
+import TipoHabitacion
+import DetalleReserva
+import Factura
+import Tarifa
 
 
 -- Función para mostrar el menú principal
