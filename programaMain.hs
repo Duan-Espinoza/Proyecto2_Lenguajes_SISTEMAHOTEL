@@ -46,7 +46,7 @@ menuAdministrativo hotel = do
     case opcion of
         "1" -> mostrarInformacion hotel
         "2" -> cargarTiposHabitacion hotel
-        "3" -> putStrLn "Funcionalidad no implementada" >> menuAdministrativo hotel
+        "3" -> cantTipoRooms hotel
         "4" -> consultarReservaciones hotel
         "5" -> estadisticasOcupacion hotel
         "6" -> menuPrincipal hotel
@@ -120,6 +120,9 @@ parseHabitacion linea = do
 eliminarDuplicados :: Eq a => [a] -> [a]
 eliminarDuplicados [] = []
 eliminarDuplicados (x:xs) = x : eliminarDuplicados (filter (/= x) xs)
+
+cantTipoRooms :: Hotel -> IO ()
+cantTipoRooms hotel = putStrLn "Funcionalidad no implementada" >> menuAdministrativo hotel
 
 consultarReservaciones :: Hotel -> IO ()
 consultarReservaciones hotel = putStrLn "Funcionalidad no implementada" >> menuAdministrativo hotel
