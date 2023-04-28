@@ -36,12 +36,6 @@
     https://docs.google.com/document/d/1Zzu3Nw5M8crIqrYXd77AkPjRXiAKUMUNLv2B8jMRwTw/edit?usp=sharing
   </p>
   <p align="center">
-    Puede acceder al diagrama UML de las estrcuturas de este proyecto de este proyecto mediante el siguiente enlace:
-  </p>
-  <p align="center">
-  <p align="center">
-    https://lucid.app/lucidchart/fd7e59e1-2bd3-41ec-8be5-bb4362277230/edit?viewport_loc=-205%2C-72%2C2315%2C1157%2C0_0&invitationId=inv_f09c67cb-85fb-4502-ace1-edcf602be2be
-  </p> 
 </div>
 
 
