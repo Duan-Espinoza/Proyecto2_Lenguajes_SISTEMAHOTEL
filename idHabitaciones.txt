@@ -1,0 +1,12 @@
+Deluxe0
+Deluxe1
+Personal0
+Personal1
+Grande Deluxe0
+Grande Deluxe1
+Pequeña swite0
+Pequeña swite1
+Grande Swite0
+Grande Swite1
+Presidencial0
+Presidencial1
